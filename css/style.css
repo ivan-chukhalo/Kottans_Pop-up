@@ -221,10 +221,10 @@
     background: url('../assets/icons/icon_sprite.png') top -857px right 2px/100%;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 768px) {
     .header{
-        padding: 0 5px;
-        justify-content: space-evenly;
+        padding: 0 20px;
+        /* justify-content: space-evenly; */
     }
 
     .header__logo{
@@ -246,6 +246,18 @@
     }
 
     .popup{
-        right: -56px;
+        right: 93px;
+    }
+}
+
+@media (max-width: 425px) {
+    .popup{
+        right: 33px;
+    }
+}
+
+@media (max-width: 320px) {
+    .popup{
+        right: 0;
     }
 }
