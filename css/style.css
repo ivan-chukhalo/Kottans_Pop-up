@@ -1,0 +1,92 @@
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+}
+
+/* __________HEADER__________ */
+.header{
+    position: sticky;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    font-size: 0;  /* getting rid of space under header__link */
+    background-color: #eee;
+    box-shadow: 1px 0px 11px 5px rgba(0,0,0,0.66);
+}
+
+.header__link{
+    display: inline-flex;
+    justify-content: start;
+}
+
+.header__logo{
+    width: 100px;
+    height: auto;
+}
+
+.header__nav{
+    font-size: 18px;
+}
+
+/* __________NAV__________ */
+.nav__list{
+    display: inline-flex;
+    align-items: center;
+    list-style: none;
+}
+
+.nav__list-item{
+    text-transform:capitalize;
+}
+
+.nav__list-item:not(:last-child){
+    margin-right: 30px;
+}
+
+.nav__link{
+    font-family: "Roboto", serif;
+    color: #777;
+    text-decoration: none;
+}
+
+.nav__link:hover{
+    color: #000;
+}
+
+.nav__icon{
+    width: 35px;
+    height: 35px;
+}
+
+.nav__avatar{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.nav__label{    /* Чому площа лейбла ніби не на всю висоту в дебагері? */
+    position: relative;
+}
+
+.nav__checkbox{
+    width: 35px;
+    height: 35px;
+    visibility: hidden;
+    position: absolute;
+    left: -35px;
+}
+
+/* _____Popup_____ */
+.popup{
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    position: absolute;
+}
+
+.nav__checkbox:not(:checked)+.popup{
+    display: none;
+}
