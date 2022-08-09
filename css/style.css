@@ -5,9 +5,16 @@
     padding: 0;
 }
 
+.link{
+    font-family: "Roboto", serif;
+    color: #777;
+    text-decoration: none;
+}
+
 /* __________HEADER__________ */
 .header{
-    position: sticky; /* refactoring: тут щось дивне. якщо міняти позиціонування, не на всю ширину розтягується. Треба розібратися. */
+    box-sizing: border-box;  /* без цього аватарка чомусь залазе за екран*/
+    width: 100%;
     padding: 0 50px;
     display: flex;
     justify-content: space-between;
@@ -46,12 +53,6 @@
     margin-right: 30px;
 }
 
-.nav__link{
-    font-family: "Roboto", serif;
-    color: #777;
-    text-decoration: none;
-}
-
 .nav__link:hover{
     color: #000;
 }
@@ -69,26 +70,29 @@
 
 .nav__label{    /* Чому площа лейбла ніби не на всю висоту в дебагері? */
     position: relative;
+    display: inline-block;
 }
 
 .checkbox{
-    display: none;  /* оскільки чекбокс тут виконує функцію перемикача, а не чекбокса форми, тому вирішив його сховати таким чином. Гадаю, для користувачів з читалками він не потрібен. */
+    visibility: hidden;
+    position: absolute;
 }
 
 /* _____Popup_____ */
 .popup{
-    width: 260px;
-    height: 400px;
-    /* background-color: red; */
+    width: 257px;
+    height: 395px;  
     position: absolute;
     right: 0;
     display: grid;
     grid-template-columns: repeat(3, 80px);
-    grid-template-rows: repeat(5, 80px);
+    grid-template-rows: repeat(4, 80px) 40px;
+    grid-auto-rows: 0px;
     overflow: scroll;
+    border: 1px grey solid;
 }
 
-.nav__checkbox:not(:checked)+.popup{
+.checkbox:not(:checked)+.popup{
     display: none;
 }
 
@@ -96,8 +100,6 @@
     box-sizing: border-box;
     width: 80px;
     height: 80px;
-    /* background-color: tomato; */
-    border: 1px solid green;
 }
 
 .popup__link{
@@ -108,6 +110,9 @@
     font-size: 14px;
     width: 100%;
     height: 100%;
+    background-color: #fff;
+    border: 1px solid #fff;
+    box-sizing: border-box;
 }
 
 .popup__link::before{
@@ -117,16 +122,130 @@
     height: 40px;
     position: absolute;
     bottom: 25px;
-    background: url('../assets/icons/icon_sprite.png') top 5px right 2px/100%;
+}
+
+.popup__link:hover,
+.popup__link:focus,
+.popup__link:focus-visible{
+    border: 1px solid rgba(9, 9, 9, 0.5);
 }
 
 .popup__more{
-    width: auto;
+    width: auto;  /* перекриваємо розміри визначені в popup__item, щоб грід розтягнув еленмент на всю свою ширину */
     height: auto;
     grid-column-start: 1;
     grid-column-end: 4;
     vertical-align: middle;
-    line-height: 60px;
     text-align: center;
+    line-height: 40px;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    font-family: "Roboto", serif;
+    color: #777;
 }
 
+.popup__more:hover,
+.popup__more:focus,
+.popup__more:focus-visible{
+    cursor: pointer;
+    border: 1px solid grey;
+}
+
+.popup__exta{
+    display: none;
+}
+
+.extra-items{
+    display: none;
+}
+
+.checkbox_more:checked+.extra-items{
+    display: grid;
+    grid-template: repeat(2, 80px) / repeat(3, 80px);
+}
+
+
+/* _____ICONS_____ */
+.icon_youtube::before{
+    background: url('../assets/icons/icon_sprite.png') top 5px right 2px/100%;
+}
+.icon_docs::before{
+    background: url('../assets/icons/icon_sprite.png') top -38px right 2px/100%;
+}
+.icon_chat::before{
+    background: url('../assets/icons/icon_sprite.png') top -81px right 2px/100%;
+}
+.icon_label::before{
+    background: url('../assets/icons/icon_sprite.png') top -124px right 2px/100%;
+}
+.icon_yellow::before{
+    background: url('../assets/icons/icon_sprite.png') top -167px right 2px/100%;
+}
+.icon_drive::before{
+    background: url('../assets/icons/icon_sprite.png') top -210px right 2px/100%;
+}
+.icon_flower::before{
+    background: url('../assets/icons/icon_sprite.png') top -253px right 2px/100%;
+}
+.icon_desk::before{
+    background: url('../assets/icons/icon_sprite.png') top -296px right 2px/100%;
+}
+.icon_calendar::before{
+    background: url('../assets/icons/icon_sprite.png') top -340px right 2px/100%;
+}
+.icon_musiem::before{
+    background: url('../assets/icons/icon_sprite.png') top -384px right 2px/100%;
+}
+.icon_apps::before{
+    background: url('../assets/icons/icon_sprite.png') top -429px right 2px/100%;
+}
+.icon_excel::before{
+    background: url('../assets/icons/icon_sprite.png') top -602px right 2px/100%;
+}
+.icon_accaunt::before{
+    background: url('../assets/icons/icon_sprite.png') top -643px right 2px/100%;
+}
+.icon_gmail::before{
+    background: url('../assets/icons/icon_sprite.png') top -685px right 2px/100%;
+}
+.icon_light::before{
+    background: url('../assets/icons/icon_sprite.png') top -726px right 2px/100%;
+}
+.icon_infinity::before{
+    background: url('../assets/icons/icon_sprite.png') top -767px right 2px/100%;
+}
+.icon_maps::before{
+    background: url('../assets/icons/icon_sprite.png') top -815px right 2px/100%;
+}
+.icon_card::before{
+    background: url('../assets/icons/icon_sprite.png') top -857px right 2px/100%;
+}
+
+@media (max-width: 320px) {
+    .header{
+        padding: 0 5px;
+        justify-content: space-evenly;
+    }
+
+    .header__logo{
+        width: 60px;
+    }
+
+    .nav__list-item:not(:last-child){
+        margin-right: 10px;
+    }
+    
+    .nav__icon{
+        width: 25px;
+        height: 25px;
+    }
+
+    .nav__avatar{
+        width: 25px;
+        height: 25px;
+    }
+
+    .popup{
+        right: -56px;
+    }
+}
