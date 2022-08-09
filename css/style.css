@@ -7,7 +7,7 @@
 
 /* __________HEADER__________ */
 .header{
-    position: sticky;
+    position: sticky; /* refactoring: тут щось дивне. якщо міняти позиціонування, не на всю ширину розтягується. Треба розібратися. */
     padding: 0 50px;
     display: flex;
     justify-content: space-between;
@@ -71,22 +71,62 @@
     position: relative;
 }
 
-.nav__checkbox{
-    width: 35px;
-    height: 35px;
-    visibility: hidden;
-    position: absolute;
-    left: -35px;
+.checkbox{
+    display: none;  /* оскільки чекбокс тут виконує функцію перемикача, а не чекбокса форми, тому вирішив його сховати таким чином. Гадаю, для користувачів з читалками він не потрібен. */
 }
 
 /* _____Popup_____ */
 .popup{
-    height: 100px;
-    width: 100px;
-    background-color: red;
+    width: 260px;
+    height: 400px;
+    /* background-color: red; */
     position: absolute;
+    right: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(5, 80px);
+    overflow: scroll;
 }
 
 .nav__checkbox:not(:checked)+.popup{
     display: none;
 }
+
+.popup__item{
+    box-sizing: border-box;
+    width: 80px;
+    height: 80px;
+    /* background-color: tomato; */
+    border: 1px solid green;
+}
+
+.popup__link{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+}
+
+.popup__link::before{
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 25px;
+    background: url('../assets/icons/icon_sprite.png') top 5px right 2px/100%;
+}
+
+.popup__more{
+    width: auto;
+    height: auto;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    vertical-align: middle;
+    line-height: 60px;
+    text-align: center;
+}
+
