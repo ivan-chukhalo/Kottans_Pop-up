@@ -15,7 +15,6 @@
 .header{
     box-sizing: border-box;  /* без цього аватарка чомусь залазе за екран*/
     width: 100%;
-    padding: 0 50px;
     display: flex;
     justify-content: space-between;
     align-items:center;
@@ -27,6 +26,7 @@
 .header__link{
     display: inline-flex;
     justify-content: start;
+    margin-left: 50px;
 }
 
 .header__logo{
@@ -36,6 +36,7 @@
 
 .header__nav{
     font-size: 18px;
+    margin-right: 50px;
 }
 
 /* __________NAV__________ */
@@ -222,9 +223,12 @@
 }
 
 @media (max-width: 768px) {
-    .header{
-        padding: 0 20px;
-        /* justify-content: space-evenly; */
+    .header__link{
+        margin-left: 20px;
+    }
+    
+    .header__nav{
+        margin-right: 20px;
     }
 
     .header__logo{
