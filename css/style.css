@@ -13,8 +13,6 @@
 
 /* __________HEADER__________ */
 .header{
-    box-sizing: border-box;  /* без цього аватарка чомусь залазе за екран*/
-    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items:center;
@@ -81,7 +79,6 @@
 
 /* _____Popup_____ */
 .popup{
-    width: 257px;
     height: 395px;  
     position: absolute;
     right: 185px;
